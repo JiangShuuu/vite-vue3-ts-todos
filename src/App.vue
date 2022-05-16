@@ -17,8 +17,10 @@ import { onMounted, reactive,  toRefs, watch } from 'vue';
 
 // 引入interface
 import { Todo } from './types/todo'
-
 import { saveTodos, readTodos } from './utils/localStorageUtils'
+
+import { useCounterStore } from './stores/counter'
+const state = useCounterStore()
 
 // const state = reactive<{todos: Todo []}>({
 //   todos: [
@@ -37,9 +39,10 @@ import { saveTodos, readTodos } from './utils/localStorageUtils'
 //   ]
 // })
 
-const state = reactive<{ todos: Todo[] }>({
-  todos: []
-})
+// const state = reactive<{ todos: Todo[] }>({
+//   todos: []
+// })
+
 onMounted(() => {
   // setTimeout(() => {
   //   state.todos = readTodos()

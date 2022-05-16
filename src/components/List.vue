@@ -7,6 +7,7 @@
 <script setup lang="ts">
 import Item from './item.vue'
 
+
 defineProps({
   lists: {
     type: Object,

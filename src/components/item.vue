@@ -4,13 +4,15 @@
       <input type="checkbox" class="mr-2" v-model="isCompleted" />
       <span class="font-bold underline">{{ todo.title }}</span>
     </label>
-    <button class="border-black border p-1 rounded" v-show="isShow" @click="delTodo">刪除</button>
+    <button class="border p-1 rounded bg-red-500 text-white" v-show="isShow" @click="delTodo">刪除</button>
   </li>
 </template>
 
 <script setup lang="ts">
 // import { Todo } from '../types/todo'
 import { ref, computed } from 'vue'
+
+
 
 const props = defineProps({
   // todo: Object as () => Todo  // 不知為何出錯

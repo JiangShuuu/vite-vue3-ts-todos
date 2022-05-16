@@ -6,6 +6,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useCounterStore } from '../stores/counter'
+
+const mainStore = useCounterStore()
 
 const props = defineProps({
   addTodo: {
@@ -30,7 +33,7 @@ const add = () => {
     isCompleted: false
   }
 
-  props.addTodo(todo)
+  mainStore.addTodo(todo)
   title.value = ''
 }
 

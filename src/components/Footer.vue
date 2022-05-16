@@ -1,15 +1,15 @@
 <template>
-  <div class="todo_footer">
-    <label>
-      <input type="checkbox" v-model="isCheckAll"/>
-    </label>
+  <div class="flex justify-between items-center">
     <span>
+      <input type="checkbox" v-model="isCheckAll"/>
       <span>
-        已完成{{ count }}
+        已完成 {{ count }}
       </span>
-      全部 {{ lists.length }}
+      <span>
+        全部 {{ lists.length }}
+      </span>
     </span>
-    <button class="btn btn_danger" @click="clearAllCompletedTodos">刪除已完成任務</button>
+    <button class="border p-1 rounded bg-red-500 text-white" @click="clearAllCompletedTodos">刪除已完成任務</button>
   </div>
 </template>
 
@@ -31,6 +31,7 @@ const props = defineProps({
     required: true
   }
 })
+
 
 const count = computed(() => {
   return props.lists.reduce((pre: any, todo: {isCompleted: boolean}, index: number) => pre + (todo.isCompleted ? 1 : 0), 0)
