@@ -1,19 +1,18 @@
 <template>
-  <li class="flex items-center justify-between h-12 px-3 my" @mouseenter="mouseHandler(true)" @mouseleave="mouseHandler(false)" :style="{backgroundColor: bgColor, color: myColor}">
-    <label class="">
+  <li class="my px-3 h-12 flex justify-between items-center" @mouseenter="mouseHandler(true)" @mouseleave="mouseHandler(false)" :style="{backgroundColor: bgColor, color: myColor}">
+    <label class=" ">
       <input type="checkbox" class="mr-2" v-model="isCompleted" />
       <span class="font-bold underline">{{ todo.title }}</span>
     </label>
-    <button class="p-1 text-white bg-red-500 border rounded" v-show="isShow" @click="delTodo">刪除</button>
+    <button class="border p-1 rounded bg-red-500 text-white" v-show="isShow" @click="delTodo">刪除</button>
   </li>
 </template>
 
 <script setup lang="ts">
 // import { Todo } from '../types/todo'
 import { ref, computed } from 'vue'
-import { useCounterStore } from '../stores/counter';
 
-const mainStore = useCounterStore()
+
 
 const props = defineProps({
   // todo: Object as () => Todo  // 不知為何出錯
@@ -21,18 +20,18 @@ const props = defineProps({
     type: Object as any,
     required: true
   },
-  // deleteTodo: {
-  //   type: Function,
-  //   required: true
-  // },
+  deleteTodo: {
+    type: Function,
+    required: true
+  },
   index: {
     type: Number,
     required: true
   },
-  // updateTodo: {
-  //   type: Function,
-  //   required: true
-  // }
+  updateTodo: {
+    type: Function,
+    required: true
+  }
 })
 
 const bgColor = ref('white')
@@ -56,8 +55,7 @@ const mouseHandler = (flag: boolean) => {
 // 刪除數據
 const delTodo = () => {
   if(window.confirm('確定要刪除嗎?')) {
-    mainStore.deleteTodo(props.index)
-    // props.deleteTodo(props.index)
+    props.deleteTodo(props.index)
   }
 }
 
@@ -66,10 +64,9 @@ const isCompleted = computed({
   get() {
     return props.todo.isCompleted
   },
-  set(val: boolean) {
+  set(val) {
     // 對todo中的isCompleted操控
-    mainStore.updateTodo(props.todo, val)
-    // props.updateTodo(props.todo, val)
+    props.updateTodo(props.todo, val)
   }
 })
 
