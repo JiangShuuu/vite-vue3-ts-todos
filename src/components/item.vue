@@ -16,23 +16,14 @@ import { useCounterStore } from '../stores/counter';
 const mainStore = useCounterStore()
 
 const props = defineProps({
-  // todo: Object as () => Todo  // 不知為何出錯
   todo: {
     type: Object as any,
     required: true
   },
-  // deleteTodo: {
-  //   type: Function,
-  //   required: true
-  // },
   index: {
     type: Number,
     required: true
   },
-  // updateTodo: {
-  //   type: Function,
-  //   required: true
-  // }
 })
 
 const bgColor = ref('white')

@@ -9,7 +9,7 @@
         全部 {{ state.todos.length }}
       </span>
     </span>
-    <button class="p-1 text-white bg-red-500 border rounded" @click="clearAllCompletedTodos">刪除已完成任務</button>
+    <button class="p-1 text-white bg-red-500 border rounded" @click="clearAllCompletedTodos()">刪除已完成任務</button>
   </div>
 </template>
 
