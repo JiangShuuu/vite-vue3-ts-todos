@@ -10,17 +10,9 @@ import { useCounterStore } from '../stores/counter'
 
 const mainStore = useCounterStore()
 
-// const props = defineProps({
-//   addTodo: {
-//     type: Function,
-//     required: true
-//   }
-// })
-
 const title = ref('')
 
 const add = () => {
-
   // 創建text
   const text = title.value
   // 判斷text不為空

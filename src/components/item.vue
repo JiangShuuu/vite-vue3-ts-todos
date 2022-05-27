@@ -9,7 +9,6 @@
 </template>
 
 <script setup lang="ts">
-// import { Todo } from '../types/todo'
 import { ref, computed } from 'vue'
 import { useCounterStore } from '../stores/counter';
 
